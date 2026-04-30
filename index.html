@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms Mastery | Abdul Bari Course</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>AlgoMaster</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>Course Progress</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div id="progress-bar-fill" class="progress-bar-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="video-search" placeholder="Search topics...">
+            </div>
+
+            <nav class="video-list-container">
+                <ul id="video-list">
+                    <!-- Videos injected here -->
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1 id="current-video-title">Select a video to start</h1>
+                <div class="header-actions">
+                    <button id="mark-complete-btn" class="btn btn-primary">
+                        <i class="far fa-check-circle"></i> Mark as Complete
+                    </button>
+                </div>
+            </header>
+
+            <section class="player-section">
+                <div class="video-wrapper">
+                    <div id="player"></div>
+                </div>
+            </section>
+
+            <section class="description-section">
+                <div class="tabs">
+                    <button class="tab-btn active">Description</button>
+                    <button class="tab-btn">Notes</button>
+                </div>
+                <div class="tab-content">
+                    <p id="video-description">Explore the fundamentals of algorithms with Abdul Bari.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
