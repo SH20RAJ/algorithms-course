@@ -19,15 +19,16 @@ const curriculumOverview = document.getElementById('curriculum-overview');
 
 // Initialize
 function init() {
+    // Find initial video first
+    currentVideo = findVideoById(lastWatchedId) || courseData[0].videos[0];
+    
     renderChapters(courseData);
     renderCompletionChecklist();
     renderCurriculumTab();
     updateProgress();
     setupTabs();
     
-    // Find initial video
-    let initialVideo = findVideoById(lastWatchedId) || courseData[0].videos[0];
-    selectVideo(initialVideo);
+    selectVideo(currentVideo);
     
     // Search listener
     searchInput.addEventListener('input', (e) => {
@@ -45,6 +46,11 @@ function init() {
     markCompleteBtn.addEventListener('click', () => {
         toggleCompletion(currentVideo.videoId);
     });
+    
+    // Handle YouTube API if already loaded
+    if (window.YT && window.YT.Player) {
+        onYouTubeIframeAPIReady();
+    }
 }
 
 function findVideoById(id) {
@@ -209,9 +215,9 @@ function renderCompletionChecklist() {
 function renderCurriculumTab() {
     if (!curriculumOverview) return;
     curriculumOverview.innerHTML = courseData.map(chapter => `
-        <div class="chapter-card">
-            <h4>${chapter.name}</h4>
-            <p>${chapter.videos.length} Lectures</p>
+        <div class="chapter-card" style="background: var(--bg-accent); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border);">
+            <h4 style="margin-bottom: 0.5rem; color: var(--accent-color);">${chapter.name}</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">${chapter.videos.length} Lectures</p>
         </div>
     `).join('');
 }
@@ -232,11 +238,18 @@ function setupTabs() {
 
 // YouTube API
 window.onYouTubeIframeAPIReady = function() {
+    if (player) return; // Already initialized
+    
     player = new YT.Player('player', {
         height: '100%',
         width: '100%',
-        videoId: currentVideo ? currentVideo.videoId : '',
-        playerVars: { 'autoplay': 0, 'rel': 0, 'modestbranding': 1 },
+        videoId: currentVideo ? currentVideo.videoId : (courseData[0].videos[0].videoId),
+        playerVars: { 
+            'autoplay': 0, 
+            'rel': 0, 
+            'modestbranding': 1,
+            'origin': window.location.origin
+        },
         events: {
             'onStateChange': (event) => {
                 if (event.data === YT.PlayerState.ENDED) {
@@ -244,6 +257,12 @@ window.onYouTubeIframeAPIReady = function() {
                         toggleCompletion(currentVideo.videoId);
                     }
                 }
+            },
+            'onReady': () => {
+                console.log("Player ready");
+            },
+            'onError': (e) => {
+                console.error("YT Player Error:", e);
             }
         }
     });
