@@ -19,7 +19,7 @@ const curriculumOverview = document.getElementById('curriculum-overview');
 
 // Initialize
 function init() {
-    // Find initial video first
+    // Find initial video
     currentVideo = findVideoById(lastWatchedId) || courseData[0].videos[0];
     
     renderChapters(courseData);
@@ -63,6 +63,7 @@ function findVideoById(id) {
 
 // Render Sidebar Chapters
 function renderChapters(data, expandAll = false) {
+    if (!chaptersContainer) return;
     chaptersContainer.innerHTML = '';
     data.forEach((chapter) => {
         const div = document.createElement('div');
@@ -111,7 +112,7 @@ function selectVideo(video) {
     currentVideo = video;
     localStorage.setItem('algo_last_watched', video.videoId);
     
-    videoTitle.textContent = video.title;
+    if (videoTitle) videoTitle.textContent = video.title;
     
     if (player && player.loadVideoById) {
         player.loadVideoById(video.videoId);
@@ -122,7 +123,8 @@ function selectVideo(video) {
         item.classList.remove('active');
         if (item.getAttribute('data-id') === video.videoId) {
             item.classList.add('active');
-            item.closest('.chapter').classList.add('open');
+            const chapter = item.closest('.chapter');
+            if (chapter) chapter.classList.add('open');
         }
     });
     
@@ -159,12 +161,14 @@ function checkChapterCompletion(videoId) {
 }
 
 function triggerConfetti() {
-    confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#10b981', '#34d399', '#ffffff']
-    });
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#10b981', '#34d399', '#ffffff']
+        });
+    }
 }
 
 // Update Progress
@@ -174,14 +178,14 @@ function updateProgress() {
     const completed = completedVideos.length;
     const percentage = Math.round((completed / total) * 100);
     
-    progressPercent.textContent = `${percentage}%`;
-    progressBarFill.style.width = `${percentage}%`;
-    
-    completedCountLabel.textContent = completed;
-    totalCountLabel.textContent = total;
+    if (progressPercent) progressPercent.textContent = `${percentage}%`;
+    if (progressBarFill) progressBarFill.style.width = `${percentage}%`;
+    if (completedCountLabel) completedCountLabel.textContent = completed;
+    if (totalCountLabel) totalCountLabel.textContent = total;
 }
 
 function updateButtonState() {
+    if (!markCompleteBtn) return;
     const isCompleted = currentVideo && completedVideos.includes(currentVideo.videoId);
     if (isCompleted) {
         markCompleteBtn.innerHTML = '<i class="fas fa-check-circle"></i> Completed';
@@ -197,14 +201,17 @@ function renderCompletionChecklist() {
     if (!completionChecklist) return;
     completionChecklist.innerHTML = '';
     courseData.forEach(chapter => {
-        const isDone = chapter.videos.every(v => completedVideos.includes(v.videoId));
+        const doneCount = chapter.videos.filter(v => completedVideos.includes(v.videoId)).length;
+        const totalCount = chapter.videos.length;
+        const isDone = doneCount === totalCount;
+        
         const item = document.createElement('div');
         item.className = `checklist-item ${isDone ? 'done' : ''}`;
         item.innerHTML = `
             <i class="${isDone ? 'fas fa-check-circle' : 'far fa-circle'}"></i>
             <div class="item-info">
-                <h3>${chapter.name}</h3>
-                <p>${chapter.videos.filter(v => completedVideos.includes(v.videoId)).length}/${chapter.videos.length} videos completed</p>
+                <h3 style="font-size: 1rem; margin-bottom: 0.25rem;">${chapter.name}</h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary);">${doneCount}/${totalCount} videos completed</p>
             </div>
         `;
         completionChecklist.appendChild(item);
@@ -215,23 +222,24 @@ function renderCompletionChecklist() {
 function renderCurriculumTab() {
     if (!curriculumOverview) return;
     curriculumOverview.innerHTML = courseData.map(chapter => `
-        <div class="chapter-card" style="background: var(--bg-accent); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border);">
-            <h4 style="margin-bottom: 0.5rem; color: var(--accent-color);">${chapter.name}</h4>
-            <p style="font-size: 0.9rem; color: var(--text-secondary);">${chapter.videos.length} Lectures</p>
+        <div class="chapter-card" style="background: var(--bg-accent); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border); display: flex; flex-direction: column; gap: 0.5rem;">
+            <h4 style="color: var(--accent-color); font-size: 1rem;">${chapter.name}</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">${chapter.videos.length} Lectures</p>
         </div>
     `).join('');
 }
 
 // Tabs Logic
 function setupTabs() {
-    document.querySelectorAll('.tab-btn').forEach(btn => {
+    document.querySelectorAll('.tab-header .tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const tabId = btn.getAttribute('data-tab');
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.tab-header .tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-body .tab-content').forEach(c => c.classList.add('hidden'));
             
             btn.classList.add('active');
-            document.getElementById(`${tabId}-tab`).classList.remove('hidden');
+            const targetTab = document.getElementById(`${tabId}-tab`);
+            if (targetTab) targetTab.classList.remove('hidden');
         });
     });
 }
@@ -257,12 +265,6 @@ window.onYouTubeIframeAPIReady = function() {
                         toggleCompletion(currentVideo.videoId);
                     }
                 }
-            },
-            'onReady': () => {
-                console.log("Player ready");
-            },
-            'onError': (e) => {
-                console.error("YT Player Error:", e);
             }
         }
     });

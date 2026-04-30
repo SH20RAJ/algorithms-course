@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Algorithms Mastery | Abdul Bari Course</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Master Algorithms with Abdul Bari's course. Interactive video platform with progress tracking, chapters, and completion rewards.">
+    <meta name="author" content="sh20raj">
+    <meta property="og:title" content="Algorithms Mastery Platform">
+    <meta property="og:description" content="Interactive Algorithms course platform with Abdul Bari.">
+    <meta property="og:url" content="https://algorithms-course.pages.dev/">
+    
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Confetti Library -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-theme">
+<body>
     <div class="app-container">
         <!-- Sidebar -->
         <aside class="sidebar">
@@ -74,24 +78,49 @@
                 <div class="tab-header">
                     <button class="tab-btn active" data-tab="curriculum">Curriculum</button>
                     <button class="tab-btn" data-tab="completion">Completion</button>
-                        <h2>Course Completion</h2>
-                        <p>Track your journey through the algorithms course.</p>
-                        <div class="stats">
-                            <div class="stat">
-                                <span id="completed-count">0</span>
-                                <label>Completed</label>
+                    <button class="tab-btn" data-tab="resources">Resources</button>
+                </div>
+                <div class="tab-body">
+                    <div id="curriculum-tab" class="tab-content">
+                        <div class="curriculum-grid" id="curriculum-overview">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+                    <div id="completion-tab" class="tab-content hidden">
+                        <div class="completion-card">
+                            <div class="celebration-header">
+                                <i class="fas fa-trophy"></i>
+                                <h2>Your Journey to Mastery</h2>
+                                <p>Track your chapter-wise completion here.</p>
                             </div>
-                            <div class="stat">
-                                <span id="total-count">0</span>
-                                <label>Total</label>
+                            <div id="completion-checklist" class="completion-checklist">
+                                <!-- Chapter checkboxes will be injected here -->
                             </div>
                         </div>
                     </div>
+                    <div id="resources-tab" class="tab-content hidden">
+                        <div class="resources-grid">
+                            <a href="https://www.youtube.com/playlist?list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O" target="_blank" class="resource-item">
+                                <i class="fab fa-youtube"></i>
+                                <span>Original Playlist</span>
+                            </a>
+                            <a href="https://github.com/SH20RAJ/algorithms-course" target="_blank" class="resource-item">
+                                <i class="fab fa-github"></i>
+                                <span>Source Code</span>
+                            </a>
+                            <a href="https://twitter.com/sh20raj" target="_blank" class="resource-item">
+                                <i class="fab fa-twitter"></i>
+                                <span>Follow @sh20raj</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </section>
+            </div>
         </main>
     </div>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <script type="module" src="app.js"></script>
 </body>

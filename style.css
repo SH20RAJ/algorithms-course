@@ -295,6 +295,12 @@ h1, h2, h3, .logo {
     padding: 2rem;
 }
 
+.curriculum-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
 .tab-header {
     display: flex;
     gap: 2rem;
