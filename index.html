@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body class="dark-theme">
     <div class="app-container">
@@ -16,56 +18,75 @@
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
-                    <i class="fas fa-brain"></i>
+                    <i class="fas fa-graduation-cap"></i>
                     <span>AlgoMaster</span>
                 </div>
-                <div class="progress-container">
-                    <div class="progress-info">
-                        <span>Course Progress</span>
-                        <span id="progress-percent">0%</span>
-                    </div>
-                    <div class="progress-bar-bg">
-                        <div id="progress-bar-fill" class="progress-bar-fill" style="width: 0%"></div>
-                    </div>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="video-search" placeholder="Search topics...">
                 </div>
             </div>
-            
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" id="video-search" placeholder="Search topics...">
+
+            <div class="progress-section">
+                <div class="progress-info">
+                    <span>Course Progress</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                </div>
+                <div class="progress-stats">
+                    <span id="completed-count">0</span> of <span id="total-count">0</span> videos
+                </div>
             </div>
 
-            <nav class="video-list-container">
-                <ul id="video-list">
-                    <!-- Videos injected here -->
-                </ul>
-            </nav>
+            <div id="chapters-container" class="chapters-list">
+                <!-- Chapters will be injected here -->
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="https://github.com/SH20RAJ/algorithms-course" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i> GitHub Repo
+                </a>
+                <div class="visitor-badge">
+                    <img src="https://visitor-badge.laobi.icu/badge?page_id=algorithms-course.pages.dev" alt="Visitors">
+                </div>
+            </div>
         </aside>
 
         <!-- Main Content -->
         <main class="main-content">
-            <header class="main-header">
-                <h1 id="current-video-title">Select a video to start</h1>
-                <div class="header-actions">
-                    <button id="mark-complete-btn" class="btn btn-primary">
-                        <i class="far fa-check-circle"></i> Mark as Complete
-                    </button>
-                </div>
-            </header>
-
-            <section class="player-section">
-                <div class="video-wrapper">
+            <div class="video-player-container">
+                <div class="video-aspect-ratio">
                     <div id="player"></div>
                 </div>
-            </section>
-
-            <section class="description-section">
-                <div class="tabs">
-                    <button class="tab-btn active">Description</button>
-                    <button class="tab-btn">Notes</button>
+                <div class="video-info">
+                    <div class="info-header">
+                        <h1 id="video-title" class="current-title">Select a video to start</h1>
+                        <button id="mark-complete-btn" class="btn btn-primary">
+                            <i class="far fa-check-circle"></i> Mark as Complete
+                        </button>
+                    </div>
                 </div>
-                <div class="tab-content">
-                    <p id="video-description">Explore the fundamentals of algorithms with Abdul Bari.</p>
+            </div>
+
+            <div class="content-tabs">
+                <div class="tab-header">
+                    <button class="tab-btn active" data-tab="curriculum">Curriculum</button>
+                    <button class="tab-btn" data-tab="completion">Completion</button>
+                        <h2>Course Completion</h2>
+                        <p>Track your journey through the algorithms course.</p>
+                        <div class="stats">
+                            <div class="stat">
+                                <span id="completed-count">0</span>
+                                <label>Completed</label>
+                            </div>
+                            <div class="stat">
+                                <span id="total-count">0</span>
+                                <label>Total</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
