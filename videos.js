@@ -103,6 +103,24 @@ const courseData = [
         "videoId": "wU6udHRIkcc",
         "duration": "26:04",
         "id": "wU6udHRIkcc"
+      },
+      {
+        "title": "Asymptotic Notations - Simplified",
+        "videoId": "ddsP7NecEBk",
+        "duration": "22:44",
+        "id": "ddsP7NecEBk"
+      },
+      {
+        "title": "Tower of Hanoi Problem - Made Easy",
+        "videoId": "q6RicK1FCUs",
+        "duration": "9:32",
+        "id": "q6RicK1FCUs"
+      },
+      {
+        "title": "Row-Major and Column-Major Mapping",
+        "videoId": "MJZd6uPi88E",
+        "duration": "19:16",
+        "id": "MJZd6uPi88E"
       }
     ]
   },
@@ -234,6 +252,12 @@ const courseData = [
         "videoId": "0oJyNmEbS4w",
         "duration": "23:40",
         "id": "0oJyNmEbS4w"
+      },
+      {
+        "title": "Merge Sort Algorithm - Hindi",
+        "videoId": "zXhWPrMLXGo",
+        "duration": "16:38",
+        "id": "zXhWPrMLXGo"
       }
     ]
   },
@@ -318,6 +342,12 @@ const courseData = [
         "id": "prx1psByp7U"
       },
       {
+        "title": "[New] Matrix Chain Multiplication using Dynamic Programming Formula",
+        "videoId": "_WncuhSJZyA",
+        "duration": "52:02",
+        "id": "_WncuhSJZyA"
+      },
+      {
         "title": "4.3.1 Matrix Chain Multiplication (Program) - Dynamic Programming",
         "videoId": "eKkXU3uu2zk",
         "duration": "18:40",
@@ -370,6 +400,12 @@ const courseData = [
         "videoId": "sSno9rV8Rhg",
         "duration": "23:35",
         "id": "sSno9rV8Rhg"
+      },
+      {
+        "title": "Shortest Path Algorithms (Dijkstra and Bellman-Ford)  - Simplified",
+        "videoId": "2raV0H9KqY8",
+        "duration": "26:13",
+        "id": "2raV0H9KqY8"
       }
     ]
   },
@@ -387,6 +423,12 @@ const courseData = [
         "videoId": "jFZsDDB0-vo",
         "duration": "8:37",
         "id": "jFZsDDB0-vo"
+      },
+      {
+        "title": "BFS DFS - Simplified",
+        "videoId": "kyUpc_5705s",
+        "duration": "19:13",
+        "id": "kyUpc_5705s"
       }
     ]
   },
@@ -502,9 +544,16 @@ const courseData = [
         "videoId": "aZjYr87r1b8",
         "duration": "39:41",
         "id": "aZjYr87r1b8"
+      },
+      {
+        "title": "Hashing Technique - Simplified",
+        "videoId": "mFY0J5W8Udk",
+        "duration": "17:04",
+        "id": "mFY0J5W8Udk"
       }
     ]
   }
+
 ];
 
 export default courseData;

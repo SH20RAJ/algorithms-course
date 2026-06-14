@@ -12,10 +12,16 @@ const videoTitle = document.getElementById('video-title');
 const progressPercent = document.getElementById('progress-percent');
 const progressBarFill = document.getElementById('progress-bar-fill');
 const markCompleteBtn = document.getElementById('mark-complete-btn');
+const prevVideoBtn = document.getElementById('prev-video-btn');
+const nextVideoBtn = document.getElementById('next-video-btn');
+const autoplayToggle = document.getElementById('autoplay-toggle');
 const completedCountLabel = document.getElementById('completed-count');
 const totalCountLabel = document.getElementById('total-count');
 const completionChecklist = document.getElementById('completion-checklist');
 const curriculumOverview = document.getElementById('curriculum-overview');
+
+// Flattened video list for navigation
+const flatVideos = courseData.flatMap(c => c.videos);
 
 // Initialize
 function init() {
@@ -46,6 +52,10 @@ function init() {
     markCompleteBtn.addEventListener('click', () => {
         toggleCompletion(currentVideo.videoId);
     });
+
+    // Navigation listeners
+    prevVideoBtn.addEventListener('click', () => navigateVideo(-1));
+    nextVideoBtn.addEventListener('click', () => navigateVideo(1));
     
     // Handle YouTube API if already loaded
     if (window.YT && window.YT.Player) {
@@ -59,6 +69,15 @@ function findVideoById(id) {
         if (found) return found;
     }
     return null;
+}
+
+function navigateVideo(direction) {
+    const currentIndex = flatVideos.findIndex(v => v.videoId === currentVideo.videoId);
+    const nextIndex = currentIndex + direction;
+    
+    if (nextIndex >= 0 && nextIndex < flatVideos.length) {
+        selectVideo(flatVideos[nextIndex]);
+    }
 }
 
 // Render Sidebar Chapters
@@ -84,6 +103,7 @@ function renderChapters(data, expandAll = false) {
                                 <i class="${isCompleted ? 'fas fa-check-circle' : 'far fa-circle'}"></i>
                             </span>
                             <span class="v-title">${video.title}</span>
+                            <span class="v-duration">${video.duration || ''}</span>
                         </div>
                     `;
                 }).join('')}
@@ -124,11 +144,25 @@ function selectVideo(video) {
         if (item.getAttribute('data-id') === video.videoId) {
             item.classList.add('active');
             const chapter = item.closest('.chapter');
-            if (chapter) chapter.classList.add('open');
+            if (chapter) {
+                chapter.classList.add('open');
+                // Scroll sidebar to active video if needed
+                item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
         }
     });
     
     updateButtonState();
+    updateNavigationButtons();
+}
+
+function updateNavigationButtons() {
+    const currentIndex = flatVideos.findIndex(v => v.videoId === currentVideo.videoId);
+    prevVideoBtn.disabled = currentIndex === 0;
+    nextVideoBtn.disabled = currentIndex === flatVideos.length - 1;
+    
+    prevVideoBtn.style.opacity = prevVideoBtn.disabled ? '0.5' : '1';
+    nextVideoBtn.style.opacity = nextVideoBtn.disabled ? '0.5' : '1';
 }
 
 // Toggle Completion
@@ -222,11 +256,22 @@ function renderCompletionChecklist() {
 function renderCurriculumTab() {
     if (!curriculumOverview) return;
     curriculumOverview.innerHTML = courseData.map(chapter => `
-        <div class="chapter-card" style="background: var(--bg-accent); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border); display: flex; flex-direction: column; gap: 0.5rem;">
-            <h4 style="color: var(--accent-color); font-size: 1rem;">${chapter.name}</h4>
-            <p style="font-size: 0.85rem; color: var(--text-secondary);">${chapter.videos.length} Lectures</p>
+        <div class="chapter-card">
+            <h4>${chapter.name}</h4>
+            <p>${chapter.videos.length} Lectures</p>
         </div>
     `).join('');
+    
+    // Add click listener to chapter cards to open them in sidebar
+    curriculumOverview.querySelectorAll('.chapter-card').forEach((card, index) => {
+        card.addEventListener('click', () => {
+            const chapters = chaptersContainer.querySelectorAll('.chapter');
+            if (chapters[index]) {
+                chapters[index].classList.add('open');
+                chapters[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
 }
 
 // Tabs Logic
@@ -263,6 +308,13 @@ window.onYouTubeIframeAPIReady = function() {
                 if (event.data === YT.PlayerState.ENDED) {
                     if (currentVideo && !completedVideos.includes(currentVideo.videoId)) {
                         toggleCompletion(currentVideo.videoId);
+                    }
+                    
+                    // Autoplay logic
+                    if (autoplayToggle && autoplayToggle.checked) {
+                        setTimeout(() => {
+                            navigateVideo(1);
+                        }, 1000); // 1 second delay before next video
                     }
                 }
             }

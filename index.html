@@ -67,9 +67,24 @@
                 <div class="video-info">
                     <div class="info-header">
                         <h1 id="video-title" class="current-title">Select a video to start</h1>
-                        <button id="mark-complete-btn" class="btn btn-primary">
-                            <i class="far fa-check-circle"></i> Mark as Complete
-                        </button>
+                        <div class="video-controls">
+                            <button id="prev-video-btn" class="btn btn-secondary" title="Previous Video">
+                                <i class="fas fa-step-backward"></i>
+                            </button>
+                            <button id="mark-complete-btn" class="btn btn-primary">
+                                <i class="far fa-check-circle"></i> Mark as Complete
+                            </button>
+                            <button id="next-video-btn" class="btn btn-secondary" title="Next Video">
+                                <i class="fas fa-step-forward"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="info-footer">
+                        <label class="auto-play-toggle">
+                            <input type="checkbox" id="autoplay-toggle" checked>
+                            <span class="slider"></span>
+                            <span class="label-text">Autoplay Next</span>
+                        </label>
                     </div>
                 </div>
             </div>
