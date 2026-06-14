@@ -47,19 +47,48 @@
             <div id="chapters-container" class="chapters-list">
                 <!-- Chapters will be injected here -->
             </div>
+<div class="sidebar-footer">
+    <button id="shortcuts-btn" class="footer-link btn-link" title="Keyboard Shortcuts">
+        <i class="fas fa-keyboard"></i> Shortcuts
+    </button>
+    <a href="https://github.com/SH20RAJ/algorithms-course" target="_blank" class="footer-link">
+        <i class="fab fa-github"></i> GitHub Repo
+    </a>
+    <div class="visitor-badge">
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=algorithms-course.pages.dev" alt="Visitors">
+    </div>
+</div>
+</aside>
 
-            <div class="sidebar-footer">
-                <a href="https://github.com/SH20RAJ/algorithms-course" target="_blank" class="footer-link">
-                    <i class="fab fa-github"></i> GitHub Repo
-                </a>
-                <div class="visitor-badge">
-                    <img src="https://visitor-badge.laobi.icu/badge?page_id=algorithms-course.pages.dev" alt="Visitors">
-                </div>
-            </div>
-        </aside>
+<!-- Main Content -->
+...
+<!-- Modal -->
+<div id="shortcuts-modal" class="modal hidden">
+<div class="modal-content">
+<div class="modal-header">
+    <h2><i class="fas fa-keyboard"></i> Keyboard Shortcuts</h2>
+    <button id="close-modal" class="close-btn">&times;</button>
+</div>
+<div class="shortcuts-grid">
+    <div class="shortcut-item"><kbd>K</kbd> or <kbd>Space</kbd> <span>Play/Pause</span></div>
+    <div class="shortcut-item"><kbd>J</kbd> <span>Seek Backward 10s</span></div>
+    <div class="shortcut-item"><kbd>L</kbd> <span>Seek Forward 10s</span></div>
+    <div class="shortcut-item"><kbd>←</kbd> <span>Seek Backward 5s</span></div>
+    <div class="shortcut-item"><kbd>→</kbd> <span>Seek Forward 5s</span></div>
+    <div class="shortcut-item"><kbd>F</kbd> <span>Toggle Fullscreen</span></div>
+    <div class="shortcut-item"><kbd>M</kbd> <span>Mute/Unmute</span></div>
+    <div class="shortcut-item"><kbd>N</kbd> <span>Next Video</span></div>
+    <div class="shortcut-item"><kbd>P</kbd> <span>Previous Video</span></div>
+    <div class="shortcut-item"><kbd>C</kbd> <span>Toggle Complete</span></div>
+    <div class="shortcut-item"><kbd>0-9</kbd> <span>Seek to %</span></div>
+    <div class="shortcut-item"><kbd>Shift</kbd>+<kbd>.</kbd> <span>Increase Speed</span></div>
+    <div class="shortcut-item"><kbd>Shift</kbd>+<kbd>,</kbd> <span>Decrease Speed</span></div>
+</div>
+</div>
+</div>
 
-        <!-- Main Content -->
-        <main class="main-content">
+<!-- Scripts -->
+
             <div class="video-player-container">
                 <div class="video-aspect-ratio">
                     <div id="player"></div>

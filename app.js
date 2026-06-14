@@ -21,6 +21,9 @@ const completedCountLabel = document.getElementById('completed-count');
 const totalCountLabel = document.getElementById('total-count');
 const completionChecklist = document.getElementById('completion-checklist');
 const curriculumOverview = document.getElementById('curriculum-overview');
+const shortcutsBtn = document.getElementById('shortcuts-btn');
+const shortcutsModal = document.getElementById('shortcuts-modal');
+const closeModal = document.getElementById('close-modal');
 
 // Flattened video list for navigation
 const flatVideos = courseData.flatMap(c => c.videos);
@@ -63,10 +66,170 @@ function init() {
     // Speed toggle listener
     speedToggleBtn.addEventListener('click', toggleSpeed);
     
+    // Modal listeners
+    shortcutsBtn.addEventListener('click', () => shortcutsModal.classList.remove('hidden'));
+    closeModal.addEventListener('click', () => shortcutsModal.classList.add('hidden'));
+    window.addEventListener('click', (e) => {
+        if (e.target === shortcutsModal) shortcutsModal.classList.add('hidden');
+    });
+    
     // Handle YouTube API if already loaded
     if (window.YT && window.YT.Player) {
         onYouTubeIframeAPIReady();
     }
+
+    setupKeyboardShortcuts();
+}
+
+function setupKeyboardShortcuts() {
+    window.addEventListener('keydown', (e) => {
+        // Don't trigger shortcuts if user is typing in search or any input
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+        if (!player || !player.getPlayerState) return;
+
+        const key = e.key.toLowerCase();
+        
+        // Prevent default for used keys to avoid page scroll etc.
+        const handledKeys = [' ', 'k', 'j', 'l', 'f', 'm', 'n', 'p', 'c', 'arrowleft', 'arrowright', 'arrowup', 'arrowdown', '>', '<'];
+        if (handledKeys.includes(key) || (key >= '0' && key <= '9')) {
+            if (key !== 'f') e.preventDefault(); // Don't prevent F to allow browser native fullscreen if needed, but we handle it
+        }
+
+        switch (key) {
+            case ' ':
+            case 'k':
+                togglePlayPause();
+                break;
+            case 'j':
+                seek(-10);
+                break;
+            case 'l':
+                seek(10);
+                break;
+            case 'arrowleft':
+                seek(-5);
+                break;
+            case 'arrowright':
+                seek(5);
+                break;
+            case 'f':
+                toggleFullscreen();
+                break;
+            case 'm':
+                toggleMute();
+                break;
+            case 'n':
+                navigateVideo(1);
+                showOSD('Next Video');
+                break;
+            case 'p':
+                navigateVideo(-1);
+                showOSD('Previous Video');
+                break;
+            case 'c':
+                toggleCompletion(currentVideo.videoId);
+                showOSD(completedVideos.includes(currentVideo.videoId) ? 'Completed' : 'Marked Incomplete');
+                break;
+            case '>':
+                changeSpeed(0.25);
+                break;
+            case '<':
+                changeSpeed(-0.25);
+                break;
+            case 'arrowup':
+                changeVolume(5);
+                break;
+            case 'arrowdown':
+                changeVolume(-5);
+                break;
+        }
+
+        if (key >= '0' && key <= '9') {
+            const percentage = parseInt(key) * 10;
+            const duration = player.getDuration();
+            player.seekTo((duration * percentage) / 100, true);
+            showOSD(`Seek to ${percentage}%`);
+        }
+    });
+}
+
+function togglePlayPause() {
+    const state = player.getPlayerState();
+    if (state === YT.PlayerState.PLAYING) {
+        player.pauseVideo();
+        showOSD('Paused', 'fa-pause');
+    } else {
+        player.playVideo();
+        showOSD('Playing', 'fa-play');
+    }
+}
+
+function seek(seconds) {
+    const currentTime = player.getCurrentTime();
+    player.seekTo(currentTime + seconds, true);
+    showOSD(`${seconds > 0 ? '+' : ''}${seconds}s`, seconds > 0 ? 'fa-forward' : 'fa-backward');
+}
+
+function toggleMute() {
+    if (player.isMuted()) {
+        player.unMute();
+        showOSD('Unmuted', 'fa-volume-up');
+    } else {
+        player.mute();
+        showOSD('Muted', 'fa-volume-mute');
+    }
+}
+
+function changeVolume(delta) {
+    const volume = player.getVolume();
+    const newVolume = Math.min(100, Math.max(0, volume + delta));
+    player.setVolume(newVolume);
+    showOSD(`Volume ${newVolume}%`, newVolume > volume ? 'fa-volume-up' : 'fa-volume-down');
+}
+
+function changeSpeed(delta) {
+    const speeds = [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2];
+    const currentIndex = speeds.indexOf(currentSpeed);
+    let nextIndex = currentIndex + (delta > 0 ? 1 : -1);
+    
+    if (nextIndex >= 0 && nextIndex < speeds.length) {
+        currentSpeed = speeds[nextIndex];
+        localStorage.setItem('algo_playback_speed', currentSpeed);
+        applySpeed();
+        updateSpeedUI();
+        showOSD(`${currentSpeed}x Speed`);
+    }
+}
+
+function toggleFullscreen() {
+    const container = document.querySelector('.video-player-container');
+    if (!document.fullscreenElement) {
+        container.requestFullscreen().catch(err => {
+            console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+function showOSD(text, iconClass = null) {
+    let osd = document.getElementById('player-osd');
+    if (!osd) {
+        osd = document.createElement('div');
+        osd.id = 'player-osd';
+        document.querySelector('.video-aspect-ratio').appendChild(osd);
+    }
+    
+    osd.innerHTML = iconClass ? `<i class="fas ${iconClass}"></i> <span>${text}</span>` : `<span>${text}</span>`;
+    osd.classList.remove('show');
+    void osd.offsetWidth; // Trigger reflow
+    osd.classList.add('show');
+    
+    if (osd.timeout) clearTimeout(osd.timeout);
+    osd.timeout = setTimeout(() => {
+        osd.classList.remove('show');
+    }, 800);
 }
 
 function findVideoById(id) {
@@ -176,9 +339,11 @@ function selectVideo(video) {
             const chapter = item.closest('.chapter');
             if (chapter) {
                 chapter.classList.add('open');
-                // Scroll sidebar to active video if needed
-                item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
+            // Scroll sidebar to active video
+            setTimeout(() => {
+                item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
         }
     });
     
