@@ -1,0 +1,85 @@
+#,title,videoUrl,videoId,publishedAt,position
+1,1. Introduction to Algorithms,https://www.youtube.com/watch?v=0IAPZzGSbME&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=1,0IAPZzGSbME,2018-01-18T12:54:29Z,0
+2,1.1 Priori Analysis and Posteriori Testing,https://www.youtube.com/watch?v=-JTq1BFBwmo&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=2,-JTq1BFBwmo,2018-03-04T21:22:17Z,1
+3,1.2 Characteristics of Algorithm,https://www.youtube.com/watch?v=FbYzBWdhMb0&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=3,FbYzBWdhMb0,2018-01-18T12:54:57Z,2
+4,1.3 How Write and Analyze Algorithm,https://www.youtube.com/watch?v=xGYsEqe9Vl0&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=4,xGYsEqe9Vl0,2018-01-18T12:55:26Z,3
+5,1.4 Frequency Count Method,https://www.youtube.com/watch?v=1U3Uwct45IY&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=5,1U3Uwct45IY,2018-01-18T12:56:03Z,4
+6,1.5.1 Time Complexity #1,https://www.youtube.com/watch?v=9TlHvipP5yA&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=6,9TlHvipP5yA,2018-01-18T12:56:27Z,5
+7,1.5.2 Time Complexity Example #2,https://www.youtube.com/watch?v=9SgLBjXqwd4&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=7,9SgLBjXqwd4,2018-01-18T12:56:49Z,6
+8,1.5.3 Time Complexity of While and if #3,https://www.youtube.com/watch?v=p1EnSvS3urU&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=8,p1EnSvS3urU,2018-02-01T11:54:14Z,7
+9,1.6 Classes of functions,https://www.youtube.com/watch?v=w7t4_JUUTeg&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=9,w7t4_JUUTeg,2018-01-18T12:57:15Z,8
+10,1.7 Compare Class of Functions,https://www.youtube.com/watch?v=5v-tKX2uRAk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=10,5v-tKX2uRAk,2018-01-18T12:57:38Z,9
+11,1.8.1 Asymptotic Notations Big Oh - Omega - Theta #1,https://www.youtube.com/watch?v=A03oI0znAoc&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=11,A03oI0znAoc,2018-01-18T12:57:58Z,10
+12,1.8.2 Asymptotic Notations - Big Oh - Omega - Theta #2,https://www.youtube.com/watch?v=Nd0XDY-jVHs&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=12,Nd0XDY-jVHs,2018-01-18T12:58:17Z,11
+13,1.9 Properties of Asymptotic Notations,https://www.youtube.com/watch?v=NI4OKSvGAgM&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=13,NI4OKSvGAgM,2018-01-19T04:17:24Z,12
+14,1.10.1 Comparison of Functions #1,https://www.youtube.com/watch?v=mwN18xfwNhk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=14,mwN18xfwNhk,2018-01-19T05:50:30Z,13
+15,1.10.2 Comparison of Functions #2,https://www.youtube.com/watch?v=WlBBTSL0ZRc&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=15,WlBBTSL0ZRc,2018-01-19T06:01:04Z,14
+16,1.11 Best Worst and Average Case Analysis,https://www.youtube.com/watch?v=lj3E24nnPjI&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=16,lj3E24nnPjI,2018-01-21T20:39:56Z,15
+17,1.12 Disjoint Sets Data Structure - Weighted Union and Collapsing Find,https://www.youtube.com/watch?v=wU6udHRIkcc&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=17,wU6udHRIkcc,2018-04-04T17:51:26Z,16
+18,2 Divide And Conquer,https://www.youtube.com/watch?v=2Rr2tW9zvRg&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=18,2Rr2tW9zvRg,2018-01-22T18:08:07Z,17
+19,2.1.1 Recurrence Relation (T(n)= T(n-1) + 1) #1,https://www.youtube.com/watch?v=4V30R3I1vLI&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=19,4V30R3I1vLI,2018-01-22T19:21:24Z,18
+20,2.1.2 Recurrence Relation (T(n)= T(n-1) + n) #2,https://www.youtube.com/watch?v=IawM82BQ4II&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=20,IawM82BQ4II,2018-01-23T20:43:09Z,19
+21,2.1.3 Recurrence Relation (T(n)= T(n-1) + log n) #3,https://www.youtube.com/watch?v=MhT7XmxhaCE&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=21,MhT7XmxhaCE,2018-01-23T21:11:24Z,20
+22,2.1.4 Recurrence Relation T(n)=2 T(n-1)+1  #4,https://www.youtube.com/watch?v=JvcqtZk2mng&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=22,JvcqtZk2mng,2018-01-24T18:53:59Z,21
+23,2.2 Masters Theorem Decreasing Function,https://www.youtube.com/watch?v=CyknhZbfMqc&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=23,CyknhZbfMqc,2018-01-24T18:55:39Z,22
+24,2.3.1 Recurrence Relation Dividing Function T(n)=T(n/2)+1 #1,https://www.youtube.com/watch?v=8gt0D0IqU5w&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=24,8gt0D0IqU5w,2018-01-24T19:01:33Z,23
+25,2.3.2 Recurrence Relation Dividing [ T(n)=T(n/2)+ n].   #2,https://www.youtube.com/watch?v=XcZw01FuH18&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=25,XcZw01FuH18,2018-01-26T04:15:39Z,24
+26,2.3.3 Recurrence Relation [ T(n)= 2T(n/2) +n]  #3,https://www.youtube.com/watch?v=1K9ebQJosvo&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=26,1K9ebQJosvo,2018-01-26T04:41:35Z,25
+27,2.4.1 Masters Theorem in Algorithms for Dividing Function #1,https://www.youtube.com/watch?v=OynWkEj0S-s&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=27,OynWkEj0S-s,2018-01-26T06:44:24Z,26
+28,2.4.2 Examples for Master Theorem #2,https://www.youtube.com/watch?v=kGcO-nAm9Vc&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=28,kGcO-nAm9Vc,2018-01-26T07:42:22Z,27
+29,2.5 Root function (Recurrence Relation),https://www.youtube.com/watch?v=9rVuyjxzwgM&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=29,9rVuyjxzwgM,2018-01-26T04:50:38Z,28
+30,2.6.1 Binary Search Iterative Method,https://www.youtube.com/watch?v=C2apEw9pgtw&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=30,C2apEw9pgtw,2018-01-29T20:22:51Z,29
+31,2.6.2 Binary Search Recursive Method,https://www.youtube.com/watch?v=uEUXGcc2VXM&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=31,uEUXGcc2VXM,2018-01-29T20:15:11Z,30
+32,2.6.3 Heap - Heap Sort - Heapify - Priority Queues,https://www.youtube.com/watch?v=HqPJF2L5h9U&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=32,HqPJF2L5h9U,2019-03-08T20:14:37Z,31
+33,2.7.1  Two Way MergeSort - Iterative method,https://www.youtube.com/watch?v=6pV2IF0fgKY&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=33,6pV2IF0fgKY,2018-01-31T11:44:02Z,32
+34,2.7.2.  Merge Sort Algorithm,https://www.youtube.com/watch?v=mB5HXBb_HY8&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=34,mB5HXBb_HY8,2018-01-31T11:58:58Z,33
+35,2.7.3 MergeSort in-depth Analysis,https://www.youtube.com/watch?v=ak-pz7tS5DE&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=35,ak-pz7tS5DE,2018-02-01T21:02:32Z,34
+36,2.8.1  QuickSort Algorithm,https://www.youtube.com/watch?v=7h1s2SojIRw&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=36,7h1s2SojIRw,2018-02-02T06:02:46Z,35
+37,2.8.2 QuickSort Analysis,https://www.youtube.com/watch?v=-qOVVRIZzao&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=37,-qOVVRIZzao,2018-02-02T06:02:57Z,36
+38,2.9 Strassens Matrix Multiplication,https://www.youtube.com/watch?v=0oJyNmEbS4w&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=38,0oJyNmEbS4w,2018-02-06T03:28:56Z,37
+39,3. Greedy Method -  Introduction,https://www.youtube.com/watch?v=ARvQcqJ_-NY&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=39,ARvQcqJ_-NY,2018-02-06T19:08:54Z,38
+40,3.1 Knapsack Problem - Greedy Method,https://www.youtube.com/watch?v=oTTzNMHM05I&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=40,oTTzNMHM05I,2018-02-06T20:11:14Z,39
+41,3.2 Job Sequencing with Deadlines - Greedy Method,https://www.youtube.com/watch?v=zPtI8q9gvX8&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=41,zPtI8q9gvX8,2018-02-07T21:38:27Z,40
+42,3.3 Optimal Merge Pattern - Greedy Method,https://www.youtube.com/watch?v=HHIc5JZyenI&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=42,HHIc5JZyenI,2018-02-07T21:23:01Z,41
+43,3.4 Huffman Coding - Greedy Method,https://www.youtube.com/watch?v=co4_ahEDCho&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=43,co4_ahEDCho,2018-02-08T12:37:57Z,42
+44,3.5 Prims and Kruskals Algorithms - Greedy Method,https://www.youtube.com/watch?v=4ZlRH0eK-qQ&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=44,4ZlRH0eK-qQ,2018-02-09T05:24:47Z,43
+45,3.6 Dijkstra Algorithm - Single Source Shortest Path - Greedy Method,https://www.youtube.com/watch?v=XB4MIexjvY0&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=45,XB4MIexjvY0,2018-02-09T20:36:06Z,44
+46,4 Principle  of Optimality  - Dynamic Programming introduction,https://www.youtube.com/watch?v=5dRGRueKU3M&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=46,5dRGRueKU3M,2018-02-16T10:32:32Z,45
+47,4.1 MultiStage Graph - Dynamic Programming,https://www.youtube.com/watch?v=9iE9Mj4m8jk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=47,9iE9Mj4m8jk,2018-02-16T10:47:52Z,46
+48,4.1.1 MultiStage Graph (Program) - Dynamic Programming,https://www.youtube.com/watch?v=FcScLYJI42E&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=48,FcScLYJI42E,2018-03-04T20:31:53Z,47
+49,4.2 All Pairs Shortest Path (Floyd-Warshall) - Dynamic Programming,https://www.youtube.com/watch?v=oNI0rf2P9gE&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=49,oNI0rf2P9gE,2018-02-16T10:45:38Z,48
+50,4.3 Matrix Chain Multiplication - Dynamic Programming,https://www.youtube.com/watch?v=prx1psByp7U&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=50,prx1psByp7U,2018-02-16T10:48:53Z,49
+51,[New] Matrix Chain Multiplication using Dynamic Programming Formula,https://www.youtube.com/watch?v=_WncuhSJZyA&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=51,_WncuhSJZyA,2019-05-12T16:10:36Z,50
+52,4.3.1 Matrix Chain Multiplication (Program) - Dynamic Programming,https://www.youtube.com/watch?v=eKkXU3uu2zk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=52,eKkXU3uu2zk,2018-03-05T19:56:11Z,51
+53,4.4 Bellman Ford Algorithm - Single Source Shortest Path - Dynamic Programming,https://www.youtube.com/watch?v=FtN3BYH2Zes&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=53,FtN3BYH2Zes,2018-02-16T11:37:57Z,52
+54,4.5 0/1 Knapsack - Two Methods - Dynamic Programming,https://www.youtube.com/watch?v=nLmhmB6NzcM&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=54,nLmhmB6NzcM,2018-02-20T21:04:21Z,53
+55,4.5.1 0/1 Knapsack Problem (Program) - Dynamic Programming,https://www.youtube.com/watch?v=zRza99HPvkQ&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=55,zRza99HPvkQ,2018-03-04T21:29:55Z,54
+56,4.6 Optimal Binary Search Tree (Successful Search Only) - Dynamic Programming,https://www.youtube.com/watch?v=vLS-zRCHo-Y&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=56,vLS-zRCHo-Y,2018-02-22T12:56:07Z,55
+57,4.6.2 [New] Optimal Binary Search Tree Successful and Unsuccessful Probability - Dynamic Programming,https://www.youtube.com/watch?v=wAy6nDMPYAE&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=57,wAy6nDMPYAE,2019-04-02T21:01:02Z,56
+58,4.7 [New] Traveling Salesman Problem - Dynamic Programming using Formula,https://www.youtube.com/watch?v=Q4zHb-Swzro&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=58,Q4zHb-Swzro,2018-04-02T20:10:47Z,57
+59,4.8 Reliability Design - Dynamic Programming,https://www.youtube.com/watch?v=uJOmqBwENB8&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=59,uJOmqBwENB8,2018-04-11T19:50:33Z,58
+60,4.9 Longest Common Subsequence (LCS)  - Recursion and Dynamic Programming,https://www.youtube.com/watch?v=sSno9rV8Rhg&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=60,sSno9rV8Rhg,2018-04-19T16:55:23Z,59
+61,5.1 Graph Traversals - BFS & DFS -Breadth First Search and Depth First Search,https://www.youtube.com/watch?v=pcKY4hjDrxk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=61,pcKY4hjDrxk,2018-02-24T10:47:25Z,60
+62,5.2 Articulation Point and Biconnected Components,https://www.youtube.com/watch?v=jFZsDDB0-vo&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=62,jFZsDDB0-vo,2018-02-24T10:48:03Z,61
+63,6 Introduction to Backtracking - Brute Force Approach,https://www.youtube.com/watch?v=DKCbsiDBN6c&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=63,DKCbsiDBN6c,2018-02-24T11:18:24Z,62
+64,6.1 N Queens Problem using Backtracking,https://www.youtube.com/watch?v=xFv_Hl4B83A&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=64,xFv_Hl4B83A,2018-02-24T11:35:29Z,63
+65,6.2 Sum Of Subsets Problem - Backtracking,https://www.youtube.com/watch?v=kyLxTdsT8ws&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=65,kyLxTdsT8ws,2018-02-24T11:49:38Z,64
+66,6.3 Graph Coloring Problem - Backtracking,https://www.youtube.com/watch?v=052VkKhIaQ4&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=66,052VkKhIaQ4,2018-02-26T14:13:52Z,65
+67,6.4 Hamiltonian Cycle - Backtracking,https://www.youtube.com/watch?v=dQr4wZCiJJ4&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=67,dQr4wZCiJJ4,2018-04-07T18:38:50Z,66
+68,7 Branch and Bound Introduction,https://www.youtube.com/watch?v=3RBNPc0_Q6g&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=68,3RBNPc0_Q6g,2018-02-26T13:57:05Z,67
+69,7.1 Job Sequencing with Deadline - Branch and Bound,https://www.youtube.com/watch?v=M7Fl_z7_J2k&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=69,M7Fl_z7_J2k,2018-02-26T15:27:05Z,68
+70,7.2 0/1 Knapsack using Branch and Bound,https://www.youtube.com/watch?v=yV1d-b_NeK8&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=70,yV1d-b_NeK8,2018-02-26T15:28:03Z,69
+71,7.3 Traveling Salesman Problem - Branch and Bound,https://www.youtube.com/watch?v=1FEP_sNb62k&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=71,1FEP_sNb62k,2018-04-13T21:12:09Z,70
+72,8. NP-Hard and NP-Complete Problems,https://www.youtube.com/watch?v=e2cF8a5aAhE&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=72,e2cF8a5aAhE,2018-02-28T12:08:20Z,71
+73,8.1 NP-Hard Graph Problem - Clique Decision Problem,https://www.youtube.com/watch?v=qZs767KQcvE&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=73,qZs767KQcvE,2018-04-09T18:39:02Z,72
+74,9.1 Knuth-Morris-Pratt KMP String Matching Algorithm,https://www.youtube.com/watch?v=V5-7GzOfADQ&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=74,V5-7GzOfADQ,2018-03-25T08:37:39Z,73
+75,9.2 Rabin-Karp String Matching Algorithm,https://www.youtube.com/watch?v=qQ8vS2btsxI&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=75,qQ8vS2btsxI,2018-03-30T19:29:59Z,74
+76,10.1 AVL Tree - Insertion and Rotations,https://www.youtube.com/watch?v=jDM6_TnYIqE&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=76,jDM6_TnYIqE,2018-03-16T16:24:28Z,75
+77,10.2  B Trees and B+ Trees. How they are useful in Databases,https://www.youtube.com/watch?v=aZjYr87r1b8&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=77,aZjYr87r1b8,2018-03-30T10:22:27Z,76
+78,Asymptotic Notations - Simplified,https://www.youtube.com/watch?v=ddsP7NecEBk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=78,ddsP7NecEBk,2015-09-17T18:59:09Z,77
+79,Hashing Technique - Simplified,https://www.youtube.com/watch?v=mFY0J5W8Udk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=79,mFY0J5W8Udk,2015-09-16T11:23:23Z,78
+80,Shortest Path Algorithms (Dijkstra and Bellman-Ford)  - Simplified,https://www.youtube.com/watch?v=2raV0H9KqY8&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=80,2raV0H9KqY8,2016-12-22T15:01:37Z,79
+81,BFS DFS - Simplified,https://www.youtube.com/watch?v=kyUpc_5705s&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=81,kyUpc_5705s,2015-10-23T10:24:17Z,80
+82,Tower of Hanoi Problem - Made Easy,https://www.youtube.com/watch?v=q6RicK1FCUs&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=82,q6RicK1FCUs,2014-05-07T19:41:58Z,81
+83,Row-Major and Column-Major Mapping,https://www.youtube.com/watch?v=MJZd6uPi88E&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=83,MJZd6uPi88E,2015-09-16T20:49:47Z,82
+84,Merge Sort Algorithm - Hindi,https://www.youtube.com/watch?v=zXhWPrMLXGo&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=84,zXhWPrMLXGo,2015-09-10T15:59:32Z,83
