@@ -4,6 +4,7 @@ let player;
 let currentVideo = null;
 let completedVideos = JSON.parse(localStorage.getItem('algo_completed_videos')) || [];
 let lastWatchedId = localStorage.getItem('algo_last_watched') || courseData[0].videos[0].videoId;
+let currentSpeed = parseFloat(localStorage.getItem('algo_playback_speed')) || 1;
 
 // DOM Elements
 const chaptersContainer = document.getElementById('chapters-container');
@@ -14,6 +15,7 @@ const progressBarFill = document.getElementById('progress-bar-fill');
 const markCompleteBtn = document.getElementById('mark-complete-btn');
 const prevVideoBtn = document.getElementById('prev-video-btn');
 const nextVideoBtn = document.getElementById('next-video-btn');
+const speedToggleBtn = document.getElementById('speed-toggle-btn');
 const autoplayToggle = document.getElementById('autoplay-toggle');
 const completedCountLabel = document.getElementById('completed-count');
 const totalCountLabel = document.getElementById('total-count');
@@ -35,6 +37,7 @@ function init() {
     setupTabs();
     
     selectVideo(currentVideo);
+    updateSpeedUI();
     
     // Search listener
     searchInput.addEventListener('input', (e) => {
@@ -57,6 +60,9 @@ function init() {
     prevVideoBtn.addEventListener('click', () => navigateVideo(-1));
     nextVideoBtn.addEventListener('click', () => navigateVideo(1));
     
+    // Speed toggle listener
+    speedToggleBtn.addEventListener('click', toggleSpeed);
+    
     // Handle YouTube API if already loaded
     if (window.YT && window.YT.Player) {
         onYouTubeIframeAPIReady();
@@ -77,6 +83,30 @@ function navigateVideo(direction) {
     
     if (nextIndex >= 0 && nextIndex < flatVideos.length) {
         selectVideo(flatVideos[nextIndex]);
+    }
+}
+
+// Speed Control
+function toggleSpeed() {
+    const speeds = [1, 1.25, 1.5, 1.75, 2];
+    const currentIndex = speeds.indexOf(currentSpeed);
+    const nextIndex = (currentIndex + 1) % speeds.length;
+    currentSpeed = speeds[nextIndex];
+    
+    localStorage.setItem('algo_playback_speed', currentSpeed);
+    applySpeed();
+    updateSpeedUI();
+}
+
+function applySpeed() {
+    if (player && player.setPlaybackRate) {
+        player.setPlaybackRate(currentSpeed);
+    }
+}
+
+function updateSpeedUI() {
+    if (speedToggleBtn) {
+        speedToggleBtn.textContent = `${currentSpeed}x`;
     }
 }
 
@@ -304,7 +334,14 @@ window.onYouTubeIframeAPIReady = function() {
             'origin': window.location.origin
         },
         events: {
+            'onReady': () => {
+                applySpeed();
+            },
             'onStateChange': (event) => {
+                if (event.data === YT.PlayerState.PLAYING) {
+                    applySpeed();
+                }
+
                 if (event.data === YT.PlayerState.ENDED) {
                     if (currentVideo && !completedVideos.includes(currentVideo.videoId)) {
                         toggleCompletion(currentVideo.videoId);
